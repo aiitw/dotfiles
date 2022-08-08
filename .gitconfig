@@ -1,0 +1,31 @@
+[init]
+	defaultBranch = main
+[user]
+	name = tancc 
+	email = tancc@users.noreply.github.com
+[credential]
+  helper = osxkeychain
+  useHttpPath = true
+[core]
+  excludesfile = ~/dotfiles/.gitconfig
+  editor = nvim
+
+[includeIf "gitdir:~/Code/aiitw"]
+  path = ~/Code/aiitw/.gitconfig
+
+[alias]
+  a = "!git status --short | peco | awk '{print $2}' | xargs git add"
+  d = diff
+  co = checkout
+  ci = commit
+  cm = commit -m
+  ca = commit --amend --no-edit
+  ps = push
+  st = status
+  br = branch
+  ba = branch -a
+  df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+  find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
+
