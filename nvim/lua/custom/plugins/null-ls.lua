@@ -9,8 +9,11 @@ local b = null_ls.builtins
 local sources = {
 
   -- webdev stuff
-  b.diagnostics.eslint_d,
-  b.formatting.eslint_d,
+  b.diagnostics.eslint_d.with({
+    diagnostics_format = '[eslint] #{m}\n(#{c})'
+  }),
+  -- b.formatting.eslint,
+  b.formatting.prettier,
   -- Lua
   b.formatting.stylua,
 

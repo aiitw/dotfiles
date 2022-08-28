@@ -36,13 +36,13 @@ return {
       require "custom.plugins.auto-session"
     end
   },
-  ["phaazon/hop.nvim"] = {
-    branch = 'v2',
-    event = 'BufReadPost',
-    config = function()
-      require'hop'.setup {}
-    end
-  },
+  -- ["phaazon/hop.nvim"] = {
+  --   branch = 'v2',
+  --   event = 'BufReadPost',
+  --   config = function()
+  --     require'hop'.setup {}
+  --   end
+  -- },
   ["nvim-telescope/telescope-file-browser.nvim"] = {
     cmd = "Telescope",
     requires = {"nvim-telescope/telescope.nvim"},
@@ -51,7 +51,24 @@ return {
     run = "make",
   },
   ["fedepujol/move.nvim"] = {
-  }
+  },
+  ["glepnir/lspsaga.nvim"] = {
+    branch = "main",
+    after = "nvim-lspconfig",
+    config = function()
+      require "custom.plugins.lspsaga"
+    end,
+    setup = function ()
+      require("core.utils").load_mappings "lspsaga"
+    end
+  },
+  ["kevinhwang91/nvim-ufo"] = {
+    after = "nvim-lspconfig",
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      require "custom.plugins.nvim-ufo"
+    end
+  },
   -- ["nvim-telescope/telescope.nvim"] = {
   --   cmd = "Telescope",
   --   config = function()

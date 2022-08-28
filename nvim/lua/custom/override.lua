@@ -21,6 +21,7 @@ M.treesitter = {
 M.nvimtree = {
   git = {
     enable = true,
+    ignore = false,
   },
 
   renderer = {
@@ -81,6 +82,7 @@ M.telescope = {
   extensions = {
     file_browser = {
       -- theme = "ivy",
+      theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {

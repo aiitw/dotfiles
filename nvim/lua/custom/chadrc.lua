@@ -6,7 +6,7 @@ local override = require "custom.override"
 -- example of changing theme:
 
 M.ui = {
-  theme = "vscode_dark",
+  theme = "tokyonight",
   hl_override = {
     CursorLine = {bg = "one_bg3"},
     Visual = {bg = "lightbg"}
@@ -22,7 +22,6 @@ M.plugins = {
     ["nvim-telescope/telescope.nvim"] = override.telescope
    },
    user = require "custom.plugins",
-   
 }
 
 M.mappings = require "custom.mappings"
